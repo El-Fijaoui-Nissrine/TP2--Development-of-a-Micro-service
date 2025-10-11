@@ -2,6 +2,7 @@ package com.example.bank_service.entities;
 
 import com.example.bank_service.enums.AccountType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Data  @NoArgsConstructor @AllArgsConstructor @Builder
 
 public class BankAccount {
-    @id
+    @Id
     private String id;
     private Date cratedAt;
     private Double balance;
