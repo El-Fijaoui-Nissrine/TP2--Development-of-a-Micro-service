@@ -1,7 +1,10 @@
 package com.example.bank_service.web;
 
+import com.example.bank_service.dto.BankAccountRequestDTO;
+import com.example.bank_service.dto.BankAccountResponseDTO;
 import com.example.bank_service.entities.BankAccount;
 import com.example.bank_service.repositories.BankAccountRepository;
+import com.example.bank_service.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +16,8 @@ import java.util.UUID;
 public class AccountRestController {
     @Autowired
   private BankAccountRepository bankAccountRepository;
+    @Autowired
+    private AccountService accountService;
 @GetMapping("/bankAccounts")
     public List<BankAccount>bankAccounts(){
     return  bankAccountRepository.findAll();
@@ -22,9 +27,8 @@ public class AccountRestController {
         return  bankAccountRepository.findById(id).orElseThrow(()->new RuntimeException(String.format("Account %s nit found",id)));
     }
     @PostMapping("/bankAccounts")
-public BankAccount save( @RequestBody BankAccount bankAccount){
-    if (bankAccount.getId()==null) bankAccount.setId(UUID.randomUUID().toString());
-    return bankAccountRepository.save(bankAccount);
+public BankAccountResponseDTO save(@RequestBody BankAccountRequestDTO requestDTO){
+    return accountService.addAcount(requestDTO);
     }
     @PutMapping("/bankAccounts/{id}")
     public BankAccount update(@PathVariable String id, @RequestBody BankAccount bankAccount){
