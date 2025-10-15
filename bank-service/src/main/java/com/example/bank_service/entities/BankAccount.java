@@ -3,6 +3,7 @@ package com.example.bank_service.entities;
 import com.example.bank_service.enums.AccountType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,4 +20,6 @@ public class BankAccount {
     private Double balance;
     private String currency;
     private AccountType type;
+    @ManyToOne
+    private Customer customer;
 }
