@@ -22,7 +22,7 @@ This microservice provides a complete banking account management system with:
 - **Maven**
 ##  Project Architecture
 ### Project Structure
-![Project Structure](./strctPrjGP.png)
+![Project Structure](./images/strctPrjGP.png)
 ### 1. Entities
 
 **BankAccount Entity:**
@@ -258,18 +258,18 @@ type : String
 ## Testing
 ### Testing with Postman
 - **GET Request - Retrieve all accounts**
-![GET Request](./getPost.png)
+![GET Request](./images/getPost.png)
 - **POST Request - Create new account**
-  ![POST Reques](./postPost.png)
+  ![POST Reques](./images/postPost.png)
 ### Testing GraphQL with GraphiQL
 - **Get all accounts**
-  ![getGP](./getGP.png)
+  ![getGP](./images/getGP.png)
 - **Create account**
-  ![addGP](./addGP.png)
+  ![addGP](./images/addGP.png)
 - **Update account** 
-  ![upGP](./upGP.png)
+  ![upGP](./images/upGP.png)
 - **Delete account**
-  ![supGP](./supGP.png)
+  ![supGP](./images/supGP.png)
 - **Get All Accounts with Customer**
-  ![getAlGP](./getAlGP.png)
+  ![getAlGP](./images/getAlGP.png)
   
