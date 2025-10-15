@@ -3,7 +3,9 @@ package com.example.bank_service.web;
 import com.example.bank_service.dto.BankAccountRequestDTO;
 import com.example.bank_service.dto.BankAccountResponseDTO;
 import com.example.bank_service.entities.BankAccount;
+import com.example.bank_service.entities.Customer;
 import com.example.bank_service.repositories.BankAccountRepository;
+import com.example.bank_service.repositories.CustomerRepository;
 import com.example.bank_service.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -17,11 +19,18 @@ public class BankAccountGraphQlController {
     @Autowired
     private BankAccountRepository bankAccountRepository;
     @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
     private AccountService accountService;
     @QueryMapping
     public List<BankAccount> accountsList (){
         return bankAccountRepository.findAll();
     }
+    @QueryMapping
+    public List<Customer> customers (){
+        return customerRepository.findAll();
+    }
+
     @QueryMapping
     public BankAccount accountById (@Argument  String id){
         return bankAccountRepository.findById(id)
